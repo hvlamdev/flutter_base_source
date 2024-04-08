@@ -1,7 +1,10 @@
-abstract class BaseUseCase {
-  Future<void> execute();
+import 'package:equatable/equatable.dart';
+
+abstract class BaseUseCase<Params, Response> {
+  Future<Response> call(Params params);
 }
 
-class NoParams {
-  NoParams();
+class NoParams extends Equatable {
+  @override
+  List<Object?> get props => [];
 }
